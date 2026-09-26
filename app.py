@@ -197,7 +197,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-img1, img2 = st.columns(2)
+espacio1, img1, img2, espacio2 = st.columns([1, 3, 3, 1])
 
 with img1:
     imagen_snoopy = Image.open("SnoopyFondo.jpg")
