@@ -52,7 +52,9 @@ p {
     font-size: 1.1rem;
 }
 
-/* Tarjetas */
+/* -----------------------------
+   TARJETAS
+----------------------------- */
 
 .card {
     background: rgba(255,255,255,0.92);
@@ -63,15 +65,22 @@ p {
     margin-bottom: 25px;
 }
 
-/* Imágenes */
+/* -----------------------------
+   IMÁGENES
+----------------------------- */
 
 .stImage img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
     border-radius: 22px;
     border: 3px solid #222222;
     box-shadow: 7px 7px 0px #222222;
 }
 
-/* Inputs */
+/* -----------------------------
+   INPUTS
+----------------------------- */
 
 .stTextInput input {
     border: 3px solid #222222;
@@ -79,7 +88,9 @@ p {
     background-color: white;
 }
 
-/* Separadores */
+/* -----------------------------
+   SEPARADORES
+----------------------------- */
 
 hr {
     border: none;
@@ -124,8 +135,7 @@ image = Image.open("SnoopyBanner.jpg")
 
 st.image(
     image,
-    use_container_width=True,
-    caption="Snoopy World Club Fans"
+    use_container_width=True
 )
 
 
@@ -167,17 +177,11 @@ img1, img2 = st.columns(2)
 
 with img1:
     imagen_snoopy = Image.open("SnoopyFondo.jpg")
-    st.image(
-        imagen_snoopy,
-        caption=" Snoopy"
-    )
+    st.image(imagen_snoopy)
 
 with img2:
     imagen_woodstock = Image.open("Woodstock.jpg")
-    st.image(
-        imagen_woodstock,
-        caption="🐦 Woodstock"
-    )
+    st.image(imagen_woodstock)
 
 
 # =====================================================
@@ -272,17 +276,11 @@ img3, img4 = st.columns(2)
 
 with img3:
     imagen_merch = Image.open("SnoopyMerch.jpg")
-    st.image(
-        imagen_merch,
-        caption="🛍️ Snoopy Merch"
-    )
+    st.image(imagen_merch)
 
 with img4:
     imagen_peanuts = Image.open("Peanuts.jpg")
-    st.image(
-        imagen_peanuts,
-        caption="☁️ Snoopy y sus amigos"
-    )
+    st.image(imagen_peanuts)
 
 
 # -----------------------------
