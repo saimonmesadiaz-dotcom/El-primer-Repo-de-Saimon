@@ -6,8 +6,7 @@ from PIL import Image
 # -----------------------------
 
 st.set_page_config(
-    page_title="Snoopy World Club Fans 🐶",
-    page_icon="🐶",
+    page_title="Snoopy World Club Fans",
     layout="wide"
 )
 
@@ -30,15 +29,11 @@ st.markdown("""
     font-family: 'Comic Neue', cursive;
 }
 
-/* Contenedor principal */
-
 .block-container {
     max-width: 1100px;
     padding-top: 2rem;
     padding-bottom: 4rem;
 }
-
-/* Títulos */
 
 h1 {
     color: #222222 !important;
@@ -52,8 +47,6 @@ h2, h3 {
     font-weight: 700 !important;
 }
 
-/* Texto */
-
 p {
     color: #333333;
     font-size: 1.1rem;
@@ -62,7 +55,7 @@ p {
 /* Tarjetas */
 
 .card {
-    background: rgba(255,255,255,0.90);
+    background: rgba(255,255,255,0.92);
     padding: 25px;
     border-radius: 25px;
     border: 3px solid #222222;
@@ -70,30 +63,12 @@ p {
     margin-bottom: 25px;
 }
 
-/* Banner */
+/* Imágenes */
 
-.banner {
-    border-radius: 25px;
-    border: 4px solid #222222;
-    box-shadow: 10px 10px 0px #222222;
-    margin-bottom: 30px;
-}
-
-/* Botones */
-
-.stButton > button {
-    background-color: #F7D447;
-    color: #222222;
+.stImage img {
+    border-radius: 22px;
     border: 3px solid #222222;
-    border-radius: 15px;
-    font-family: 'Comic Neue', cursive;
-    font-weight: bold;
-    box-shadow: 4px 4px 0px #222222;
-}
-
-.stButton > button:hover {
-    background-color: #F2C62D;
-    transform: translateY(-2px);
+    box-shadow: 7px 7px 0px #222222;
 }
 
 /* Inputs */
@@ -118,11 +93,11 @@ hr {
 
 
 # -----------------------------
-# ENCABEZADO
+# TÍTULO
 # -----------------------------
 
 st.markdown(
-    "<h1>🐶 Snoopy World Club Fans</h1>",
+    "<h1>Snoopy World Club Fans</h1>",
     unsafe_allow_html=True
 )
 
@@ -131,8 +106,9 @@ st.markdown(
     <div class="card">
         <h3>☁️ ¡Bienvenido al mundo de Snoopy!</h3>
         <p>
-        Un pequeño espacio para descubrir novedades, merchandising,
-        programas y curiosidades de Snoopy y sus amigos.
+        En este repositorio encontrarás información acerca de las
+        novedades de la merch, programas y contenido de Snoopy
+        y sus amigos.
         </p>
     </div>
     """,
@@ -141,20 +117,23 @@ st.markdown(
 
 
 # -----------------------------
-# BANNER
+# BANNER PRINCIPAL
 # -----------------------------
 
 image = Image.open("SnoopyBanner.jpg")
 
 st.image(
     image,
-    use_container_width=True
+    use_container_width=True,
+    caption="Snoopy World Club Fans"
 )
 
 
 # -----------------------------
 # MENSAJE
 # -----------------------------
+
+st.markdown("<hr>", unsafe_allow_html=True)
 
 st.markdown(
     """
@@ -166,28 +145,57 @@ st.markdown(
 )
 
 texto = st.text_input(
-    "Escribe algo para el club:",
-    "¡Hola Snoopy! 🐶"
+    "Escribe algo:",
+    "Este es mi texto"
 )
 
-st.success(f"Snoopy recibió tu mensaje: {texto}")
+st.write("El texto escrito es:", texto)
 
 
-# -----------------------------
-# SECCIONES
-# -----------------------------
+# =====================================================
+# PRIMERA FILA DE IMÁGENES
+# =====================================================
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
 st.markdown(
-    "<h2 style='text-align:center;'>⭐ Conoce el club ⭐</h2>",
+    "<h2 style='text-align:center;'>🐾 Snoopy y sus amigos 🐾</h2>",
+    unsafe_allow_html=True
+)
+
+img1, img2 = st.columns(2)
+
+with img1:
+    imagen_snoopy = Image.open("Snoopy.jpg")
+    st.image(
+        imagen_snoopy,
+        caption=" Snoopy"
+    )
+
+with img2:
+    imagen_woodstock = Image.open("Woodstock.jpg")
+    st.image(
+        imagen_woodstock,
+        caption="🐦 Woodstock"
+    )
+
+
+# =====================================================
+# LAS DOS COLUMNAS ORIGINALES
+# =====================================================
+
+st.markdown("<hr>", unsafe_allow_html=True)
+
+st.markdown(
+    "<h2 style='text-align:center;'>🎨 Interfaces multimodales</h2>",
     unsafe_allow_html=True
 )
 
 col1, col2 = st.columns(2)
 
+
 # -----------------------------
-# COLUMNA 1
+# PRIMERA COLUMNA
 # -----------------------------
 
 with col1:
@@ -195,24 +203,27 @@ with col1:
     st.markdown(
         """
         <div class="card">
-            <h3>🐾 Tu opinión</h3>
-            <p>
-            ¿Te gustan las novedades de Snoopy y sus amigos?
-            </p>
-        </div>
         """,
         unsafe_allow_html=True
     )
 
-    resp = st.checkbox("Sí, soy fan de Snoopy 🐶")
+    st.subheader("Esta es la primera columna")
+
+    st.write("Las interfaces multimodales mejoran la UX")
+
+    resp = st.checkbox("Estoy de acuerdo")
 
     if resp:
-        st.balloons()
-        st.success("¡Bienvenido oficialmente al Snoopy World Club! ⭐")
+        st.write("Correcto")
+
+    st.markdown(
+        "</div>",
+        unsafe_allow_html=True
+    )
 
 
 # -----------------------------
-# COLUMNA 2
+# SEGUNDA COLUMNA
 # -----------------------------
 
 with col2:
@@ -220,26 +231,58 @@ with col2:
     st.markdown(
         """
         <div class="card">
-            <h3>🎨 Tu personaje favorito</h3>
-            <p>
-            ¿Qué aspecto de Snoopy disfrutas más?
-            </p>
-        </div>
         """,
         unsafe_allow_html=True
     )
 
+    st.subheader("Esta es la segunda columna")
+
     modo = st.radio(
-        "Elige una opción:",
-        (
-            "🐶 Snoopy",
-            "🐦 Woodstock",
-            "🎹 Schroeder",
-            "👧 Lucy"
-        )
+        "Que Modalidad es la principal en tu interfaz",
+        ("Visual", "Auditiva", "Táctil")
     )
 
-    st.info(f"¡Elegiste {modo}!")
+    if modo == "Visual":
+        st.write("La vista es fundamental para tu interfaz")
+
+    if modo == "Auditiva":
+        st.write("La audición es fundamental para tu interfaz")
+
+    if modo == "Táctil":
+        st.write("El tacto es fundamental para tu interfaz")
+
+    st.markdown(
+        "</div>",
+        unsafe_allow_html=True
+    )
+
+
+# =====================================================
+# SEGUNDA FILA DE IMÁGENES
+# =====================================================
+
+st.markdown("<hr>", unsafe_allow_html=True)
+
+st.markdown(
+    "<h2 style='text-align:center;'>⭐ El mundo de Peanuts ⭐</h2>",
+    unsafe_allow_html=True
+)
+
+img3, img4 = st.columns(2)
+
+with img3:
+    imagen_merch = Image.open("SnoopyMerch.jpg")
+    st.image(
+        imagen_merch,
+        caption="🛍️ Snoopy Merch"
+    )
+
+with img4:
+    imagen_peanuts = Image.open("Peanuts.jpg")
+    st.image(
+        imagen_peanuts,
+        caption="☁️ Snoopy y sus amigos"
+    )
 
 
 # -----------------------------
@@ -251,9 +294,9 @@ st.markdown("<hr>", unsafe_allow_html=True)
 st.markdown(
     """
     <div style="text-align:center;">
-        <h3>☁️ Snoopy World Club Fans 🐶</h3>
-        <p>Un pequeño rincón dedicado al universo de Peanuts.</p>
-        <p>⭐ 🐾 ☁️ 🐶 ☁️ 🐾 ⭐</p>
+        <h3>Snoopy World Club Fans</h3>
+        <p>Un pequeño rincón dedicado al universo de Snoopy y Peanuts.</p>
+        <p>⭐ 🐾 ☁️ 🐾 ⭐</p>
     </div>
     """,
     unsafe_allow_html=True
