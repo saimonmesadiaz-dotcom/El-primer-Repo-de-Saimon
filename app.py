@@ -35,6 +35,10 @@ st.markdown("""
     padding-bottom: 4rem;
 }
 
+/* -----------------------------
+   TÍTULOS
+----------------------------- */
+
 h1 {
     color: #222222 !important;
     text-align: center;
@@ -79,13 +83,33 @@ p {
 }
 
 /* -----------------------------
-   INPUTS
+   CAMPO DE TEXTO
 ----------------------------- */
 
 .stTextInput input {
+    color: #000000 !important;
+    background-color: #ffffff !important;
     border: 3px solid #222222;
     border-radius: 15px;
-    background-color: white;
+}
+
+.stTextInput input::placeholder {
+    color: #555555 !important;
+}
+
+/* Texto de las etiquetas */
+
+.stTextInput label {
+    color: #222222 !important;
+}
+
+/* -----------------------------
+   CHECKBOX Y RADIO
+----------------------------- */
+
+.stCheckbox label,
+.stRadio label {
+    color: #222222 !important;
 }
 
 /* -----------------------------
@@ -204,13 +228,6 @@ col1, col2 = st.columns(2)
 
 with col1:
 
-    st.markdown(
-        """
-        <div class="card">
-        """,
-        unsafe_allow_html=True
-    )
-
     st.subheader("Esta es la primera columna")
 
     st.write("Las interfaces multimodales mejoran la UX")
@@ -220,24 +237,12 @@ with col1:
     if resp:
         st.write("Correcto")
 
-    st.markdown(
-        "</div>",
-        unsafe_allow_html=True
-    )
-
 
 # -----------------------------
 # SEGUNDA COLUMNA
 # -----------------------------
 
 with col2:
-
-    st.markdown(
-        """
-        <div class="card">
-        """,
-        unsafe_allow_html=True
-    )
 
     st.subheader("Esta es la segunda columna")
 
@@ -254,11 +259,6 @@ with col2:
 
     if modo == "Táctil":
         st.write("El tacto es fundamental para tu interfaz")
-
-    st.markdown(
-        "</div>",
-        unsafe_allow_html=True
-    )
 
 
 # =====================================================
