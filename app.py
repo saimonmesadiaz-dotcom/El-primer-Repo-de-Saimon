@@ -166,7 +166,7 @@ st.markdown(
 img1, img2 = st.columns(2)
 
 with img1:
-    imagen_snoopy = Image.open("Snoopy.jpg")
+    imagen_snoopy = Image.open("SnoopyFondo.jpg")
     st.image(
         imagen_snoopy,
         caption=" Snoopy"
